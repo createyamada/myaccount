@@ -1,0 +1,6 @@
+framework module Pods_myaccount {
+  umbrella header "Pods-myaccount-umbrella.h"
+
+  export *
+  module * { export * }
+}
