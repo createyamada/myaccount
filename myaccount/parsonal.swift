@@ -19,10 +19,9 @@ class user: Object {
     @objc dynamic var age:String = "";
     //性別
     @objc dynamic var sex:Int8 = 0;
-}
-
-//財務情報(インカム)クラス
-class moneyincome: Object {
+//    //財務情報(インカム)クラス
+//    class moneyincome: Object {
+//    }
     //貯金額
     @objc dynamic var saveingaumont:Int8 = 0;
     //月収額
@@ -30,13 +29,10 @@ class moneyincome: Object {
     //その他収入
     @objc dynamic var incomeetc:Int8 = 0;
     //収入事由
-    @objc dynamic var reason:String = "";
-
-    
-}
-
-//財務情報(フロー)クラス
-class moneyflow: Object {
+    @objc dynamic var staticreason:String = "";
+//    //財務情報(フロー)クラス
+//    class moneyflow: Object {
+//    }
     //家賃
     @objc dynamic var home:Int8 = 0;
     //電気
@@ -51,14 +47,25 @@ class moneyflow: Object {
     @objc dynamic var insure:Int8 = 0;
     //サブスク
     @objc dynamic var subsc:Int8 = 0;
-}
-//臨時　　カレンダークラス
-class calender: Object {
+    
+//    //臨時　　カレンダークラス
+//    class calender: Object {
+//    }
+    //タイトル
     @objc dynamic var title = ""
-    @objc dynamic var reason = ""
+    //支出事由
+    @objc dynamic var activereason = ""
+    //メモ
     @objc dynamic var memo = ""
-    //yyyy.mm.dd
+    //yyyy.mm.dd（年月日）
     @objc dynamic var date = ""
+    //支出
     @objc dynamic var value = 0
 }
+
+
+
+
+
+
 

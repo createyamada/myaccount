@@ -80,22 +80,10 @@ class SavingsDeviationValue: UIViewController {
         //ナビゲーションを表示させる
         navigationController?.popViewController(animated: true)
     
-        showName.text = searchName(id :g_id,pass :g_pass)
+        showName.text = function.searchName(id :g_id,pass :g_pass)
     }
     
-    func searchName(id :String,pass: String) -> String {
-        var name: String = "並木　櫻"
-        
-        let realm = try!Realm()
-        
-        let Items = realm.objects(user.self).filter("id == %@",g_id).filter("pass == %@",g_pass)
-        for user in Items {
-            name = user.name
-        }
-        
-        
-        return name
-    }
+   
     
 
 }

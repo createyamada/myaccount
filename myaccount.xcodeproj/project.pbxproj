@@ -19,6 +19,7 @@
 		C652F1E326FCBBDB007834C5 /* changefixedFeeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C652F1E226FCBBDB007834C5 /* changefixedFeeViewController.swift */; };
 		C65995B7273976BB00B60082 /* outregister.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65995B6273976BB00B60082 /* outregister.swift */; };
 		C65BCD85270C25F100C262F1 /* calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65BCD84270C25F100C262F1 /* calendar.swift */; };
+		C663709E2803F5A000BCB38B /* NewUserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C663709D2803F5A000BCB38B /* NewUserInfo.swift */; };
 		C66AAEFD2701F815000595E4 /* out.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66AAEFC2701F815000595E4 /* out.swift */; };
 		C67B59D126B79C4600FBA44F /* SavingsDeviationValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67B59D026B79C4600FBA44F /* SavingsDeviationValue.swift */; };
 		C67B59D326B83B1C00FBA44F /* fixedFee.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67B59D226B83B1C00FBA44F /* fixedFee.swift */; };
@@ -81,6 +82,7 @@
 		C652F1E226FCBBDB007834C5 /* changefixedFeeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = changefixedFeeViewController.swift; sourceTree = "<group>"; };
 		C65995B6273976BB00B60082 /* outregister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = outregister.swift; sourceTree = "<group>"; };
 		C65BCD84270C25F100C262F1 /* calendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = calendar.swift; sourceTree = "<group>"; };
+		C663709D2803F5A000BCB38B /* NewUserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewUserInfo.swift; sourceTree = "<group>"; };
 		C66AAEFC2701F815000595E4 /* out.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = out.swift; sourceTree = "<group>"; };
 		C67B59D026B79C4600FBA44F /* SavingsDeviationValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavingsDeviationValue.swift; sourceTree = "<group>"; };
 		C67B59D226B83B1C00FBA44F /* fixedFee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fixedFee.swift; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				C686B0D426EA277800DD4F92 /* cleate.swift */,
+				C663709D2803F5A000BCB38B /* NewUserInfo.swift */,
 				C65174F327164C4E00F59F09 /* NewfixedFee.swift */,
 			);
 			path = cleateacoount;
@@ -488,6 +491,7 @@
 			files = (
 				C66AAEFD2701F815000595E4 /* out.swift in Sources */,
 				C606A8ED26A8FF5A00F50358 /* parsonal.swift in Sources */,
+				C663709E2803F5A000BCB38B /* NewUserInfo.swift in Sources */,
 				C6D7810F26B31E73007147EA /* ceo.swift in Sources */,
 				C652F1E326FCBBDB007834C5 /* changefixedFeeViewController.swift in Sources */,
 				C62C5C1626B04A7100B1A101 /* g_main.swift in Sources */,

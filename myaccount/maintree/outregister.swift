@@ -9,9 +9,9 @@ import UIKit
 import RealmSwift
 
 class outregister: UIViewController {
-
-
-
+    
+    
+    
     @IBOutlet weak var datepicker: UIDatePicker!
     @IBOutlet weak var text: UILabel!
     @IBOutlet weak var imageView: UIImageView!
@@ -19,8 +19,8 @@ class outregister: UIViewController {
     var selecttext:String!
     var selectedImg: UIImage!
     var r_selectdate:String!
-
-
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,36 +31,33 @@ class outregister: UIViewController {
         /// DateFomatterクラスのインスタンス生成
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy'年'MM'月'dd'日"
-        let initdate:Date?? = dateFormatter.date(from: r_selectdate)
-
-        datepicker.date = initdate
+        let initdate:Date? = dateFormatter.date(from: r_selectdate)
+        //calenderから渡された日付を初期値として表示
+        datepicker.date = initdate!
         //ナビゲーションを表示させる
         navigationController?.popViewController(animated: true)
-
+        
     }
     //登録ボタン押下時
     @IBAction func registerClick(_ sender: Any) {
-    //ボタンクリックしたら、金額のチェックを行ってreason
-        let figure = value.text!
-        if function.CheckNull(figure: figure) == 1 {
-            //テキストボックスの入力値を登録する
-            let realm = try! Realm()
-            let eventModel = calender()
-            //登録処理
-            try! realm.write{
-            eventModel.title = ""
-            eventModel.reason = selecttext
-            eventModel.memo = ""
-            eventModel.date =  "2021.11.30"
-                realm.add(eventModel)
-            }
-            }
-
+        //テキストボックスの内容を配列に格納する。
+        var allText:[String] = []
+        allText.append(text.text!)
+        //空文字チェック
+        let results:[Int]  = function.checkNull(getallText: allText , getstate: 1)
+        //エラーフラグがあるかチェック
+        if function.resultsCheck(getresults: results) == 0{
+            
         }
         
+        
     }
+}
     
-
+    
+    
+    
+    
     
     
 
