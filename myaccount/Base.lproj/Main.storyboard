@@ -102,7 +102,7 @@
                     </view>
                     <connections>
                         <outlet property="errorText" destination="63f-mb-va9" id="IF0-pi-t7M"/>
-                        <outlet property="id" destination="wuC-JQ-yeC" id="hEN-fh-ICn"/>
+                        <outlet property="id" destination="Bhg-gO-dsM" id="FWx-b7-D9k"/>
                         <outlet property="pass" destination="wuC-JQ-yeC" id="WgY-DX-wiu"/>
                     </connections>
                 </viewController>
@@ -758,7 +758,6 @@
                                 <state key="normal" title="次へ"/>
                                 <connections>
                                     <action selector="registerNext:" destination="qHz-qz-Btf" eventType="touchUpInside" id="d4G-wc-Foa"/>
-                                    <segue destination="VLy-ya-hON" kind="show" id="Bej-GX-48m"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="sbL-XK-jam">
@@ -928,99 +927,99 @@
             <objects>
                 <viewController storyboardIdentifier="NewfixedFee" id="Orq-uv-Q6h" customClass="NewfixedFee" customModule="myaccount" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xDa-cV-aNU">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="固定費" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZSz-vC-wx3">
-                                <rect key="frame" x="20" y="30" width="106" height="74"/>
+                                <rect key="frame" x="20" y="74" width="106" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="tQ3-B1-Wfn">
-                                <rect key="frame" x="20" y="129" width="374" height="532"/>
+                                <rect key="frame" x="20" y="129" width="374" height="586"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="家賃" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uig-uE-8DK">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="38"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="42"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VzU-8R-Pey">
-                                        <rect key="frame" x="0.0" y="38" width="374" height="38"/>
+                                        <rect key="frame" x="0.0" y="42" width="374" height="41.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="電気料金" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4AT-CU-Gu1">
-                                        <rect key="frame" x="0.0" y="76" width="374" height="38"/>
+                                        <rect key="frame" x="0.0" y="83.5" width="374" height="42"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UTI-46-6El">
-                                        <rect key="frame" x="0.0" y="114" width="374" height="38"/>
+                                        <rect key="frame" x="0.0" y="125.5" width="374" height="42"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="水道料金" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wza-BO-GhI">
-                                        <rect key="frame" x="0.0" y="152" width="374" height="38"/>
+                                        <rect key="frame" x="0.0" y="167.5" width="374" height="42"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vED-Un-LYk">
-                                        <rect key="frame" x="0.0" y="190" width="374" height="38"/>
+                                        <rect key="frame" x="0.0" y="209.5" width="374" height="41.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ガス料金" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Vq-0v-ZE8">
-                                        <rect key="frame" x="0.0" y="228" width="374" height="38"/>
+                                        <rect key="frame" x="0.0" y="251" width="374" height="42"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Eic-Qf-Ng8">
-                                        <rect key="frame" x="0.0" y="266" width="374" height="38"/>
+                                        <rect key="frame" x="0.0" y="293" width="374" height="42"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="通信料" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eGT-6j-lCz">
-                                        <rect key="frame" x="0.0" y="304" width="374" height="38"/>
+                                        <rect key="frame" x="0.0" y="335" width="374" height="41.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cTV-TK-PLC">
-                                        <rect key="frame" x="0.0" y="342" width="374" height="38"/>
+                                        <rect key="frame" x="0.0" y="376.5" width="374" height="42"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="保険料" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kkw-Ht-XED">
-                                        <rect key="frame" x="0.0" y="380" width="374" height="38"/>
+                                        <rect key="frame" x="0.0" y="418.5" width="374" height="42"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="x0Q-bP-lnT">
-                                        <rect key="frame" x="0.0" y="418" width="374" height="38"/>
+                                        <rect key="frame" x="0.0" y="460.5" width="374" height="42"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="その他サブスク" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vdq-An-eho">
-                                        <rect key="frame" x="0.0" y="456" width="374" height="38"/>
+                                        <rect key="frame" x="0.0" y="502.5" width="374" height="41.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Zkl-8G-2Nw">
-                                        <rect key="frame" x="0.0" y="494" width="374" height="38"/>
+                                        <rect key="frame" x="0.0" y="544" width="374" height="42"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3kr-dP-RYS">
-                                <rect key="frame" x="181.5" y="686" width="51" height="28"/>
+                                <rect key="frame" x="181.5" y="740" width="51" height="28"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="登録"/>
                                 <connections>
@@ -1063,26 +1062,26 @@
             <objects>
                 <viewController storyboardIdentifier="NewUserInfo" id="VLy-ya-hON" customClass="NewUserInfo" customModule="myaccount" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lWg-yT-9O7">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ユーザ情報" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y2c-o3-oZz">
-                                <rect key="frame" x="20" y="30" width="176.5" height="74"/>
+                                <rect key="frame" x="20" y="74" width="176.5" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="cgb-BV-ILp">
-                                <rect key="frame" x="20" y="129" width="374" height="532"/>
+                                <rect key="frame" x="20" y="129" width="374" height="586"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ニックネーム" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qZz-6C-7Qi">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="41"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="45"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yYJ-Jj-O3X">
-                                        <rect key="frame" x="0.0" y="41" width="374" height="41"/>
+                                        <rect key="frame" x="0.0" y="45" width="374" height="45"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <connections>
@@ -1090,24 +1089,24 @@
                                         </connections>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="年齢" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wRg-Ux-lq6">
-                                        <rect key="frame" x="0.0" y="82" width="374" height="41"/>
+                                        <rect key="frame" x="0.0" y="90" width="374" height="45"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="P2f-rs-ANk">
-                                        <rect key="frame" x="0.0" y="123" width="374" height="40.5"/>
+                                        <rect key="frame" x="0.0" y="135" width="374" height="45.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="性別" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0km-2w-xoE">
-                                        <rect key="frame" x="0.0" y="163.5" width="374" height="41"/>
+                                        <rect key="frame" x="0.0" y="180.5" width="374" height="45"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="TUi-kc-ffo">
-                                        <rect key="frame" x="0.0" y="204.5" width="374" height="42"/>
+                                        <rect key="frame" x="0.0" y="225.5" width="374" height="46"/>
                                         <segments>
                                             <segment title="男性"/>
                                             <segment title="女性"/>
@@ -1115,40 +1114,40 @@
                                         </segments>
                                     </segmentedControl>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="貯金額" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cxi-Iw-cI6">
-                                        <rect key="frame" x="0.0" y="245.5" width="374" height="41"/>
+                                        <rect key="frame" x="0.0" y="270.5" width="374" height="45"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Vej-KJ-3RJ">
-                                        <rect key="frame" x="0.0" y="286.5" width="374" height="41"/>
+                                        <rect key="frame" x="0.0" y="315.5" width="374" height="45"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="年収（賞与含む）" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2TK-Ig-1g5">
-                                        <rect key="frame" x="0.0" y="327.5" width="374" height="41"/>
+                                        <rect key="frame" x="0.0" y="360.5" width="374" height="45"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZlR-9z-rue">
-                                        <rect key="frame" x="0.0" y="368.5" width="374" height="40.5"/>
+                                        <rect key="frame" x="0.0" y="405.5" width="374" height="45.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="月収（額面）" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X9A-gu-unQ">
-                                        <rect key="frame" x="0.0" y="409" width="374" height="41"/>
+                                        <rect key="frame" x="0.0" y="451" width="374" height="45"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4aM-yh-DTq">
-                                        <rect key="frame" x="0.0" y="450" width="374" height="41"/>
+                                        <rect key="frame" x="0.0" y="496" width="374" height="45"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yRP-Cu-Gco">
-                                        <rect key="frame" x="0.0" y="491" width="374" height="41"/>
+                                        <rect key="frame" x="0.0" y="541" width="374" height="45"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -1156,12 +1155,11 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PzG-nv-Rwd">
-                                <rect key="frame" x="181.5" y="686" width="51" height="28"/>
+                                <rect key="frame" x="181.5" y="740" width="51" height="28"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="次へ"/>
                                 <connections>
                                     <action selector="clicknext:" destination="VLy-ya-hON" eventType="touchUpInside" id="TTl-gJ-AU4"/>
-                                    <segue destination="Orq-uv-Q6h" kind="show" id="KIN-zL-RIi"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1182,17 +1180,12 @@
                     </view>
                     <navigationItem key="navigationItem" id="TSg-Gf-yB4"/>
                     <connections>
-                        <outlet property="age" destination="P2f-rs-ANk" id="UmW-Py-1cK"/>
-                        <outlet property="annualIncome" destination="ZlR-9z-rue" id="4Kz-Nr-MSa"/>
-                        <outlet property="denki" destination="P2f-rs-ANk" id="d2k-iF-0dx"/>
-                        <outlet property="gasu" destination="Vej-KJ-3RJ" id="JDN-5E-6DC"/>
-                        <outlet property="hoken" destination="4aM-yh-DTq" id="RtR-6j-hbD"/>
-                        <outlet property="monthlyIncome" destination="4aM-yh-DTq" id="pPZ-a6-EEW"/>
-                        <outlet property="name" destination="yYJ-Jj-O3X" id="bvE-LM-aa0"/>
-                        <outlet property="saving" destination="Vej-KJ-3RJ" id="B9F-YS-Cgx"/>
-                        <outlet property="sex" destination="TUi-kc-ffo" id="sv3-Kx-9JC"/>
-                        <outlet property="tushin" destination="ZlR-9z-rue" id="fTB-bT-rzv"/>
-                        <outlet property="yachin" destination="yYJ-Jj-O3X" id="cHs-US-jEy"/>
+                        <outlet property="age" destination="P2f-rs-ANk" id="Kl6-Tq-weZ"/>
+                        <outlet property="annualIncome" destination="ZlR-9z-rue" id="9V7-YI-ZU2"/>
+                        <outlet property="monthlyIncome" destination="4aM-yh-DTq" id="ZVM-4A-MPF"/>
+                        <outlet property="name" destination="yYJ-Jj-O3X" id="2JT-Uq-5f2"/>
+                        <outlet property="saving" destination="Vej-KJ-3RJ" id="kOW-1J-Zrx"/>
+                        <outlet property="sex" destination="TUi-kc-ffo" id="dpX-jq-nPY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xqa-xD-9lg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

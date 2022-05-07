@@ -8,6 +8,7 @@ import RealmSwift
 
 
 class NewUserInfo: UIViewController {
+
     @IBOutlet weak var name: UITextField!
     @IBOutlet weak var age: UITextField!
     @IBOutlet weak var sex: UISegmentedControl!
@@ -38,7 +39,7 @@ class NewUserInfo: UIViewController {
         let results:[Int]  = function.checkNull(getallText: allText , getstate: 1)
         //エラーフラグが立っていなければ登録処理
         if function.resultsCheck(getresults: results) == 0 {
-            if function.newPriceRegister(getresults: function.chengeInt8(getallText: allText)) == 0 {
+            if function.newUserRegister(getresults: allText) == 0 {
                 //次画面のストーリーボードを指定
                 let storyboard: UIStoryboard = self.storyboard!
                 //遷移先のコントローラーを指定
@@ -120,7 +121,7 @@ class NewUserInfo: UIViewController {
         //            if errorflag == 1 {
         //            } else {
         //                //配列内の型変換に利用する配列
-        //                let change = checkarray.compactMap { Int8($0) }
+        //                let change = checkarray.compactMap { Int64($0) }
         //
         //
         //
@@ -133,13 +134,13 @@ class NewUserInfo: UIViewController {
         //                for value in change {
         //
         //                    switch value {
-        //                    case 0: c_moneyflow.home = Int8(change[0])
-        //                    case 1: c_moneyflow.elec = Int8(change[1])
-        //                    case 2: c_moneyflow.water = Int8(change[2])
-        //                    case 3: c_moneyflow.gas = Int8(change[3])
-        //                    case 4: c_moneyflow.com = Int8(change[4])
-        //                    case 5 : c_moneyflow.insure = Int8(change[5])
-        //                    case 6 : c_moneyflow.subsc = Int8(change[6])
+        //                    case 0: c_moneyflow.home = Int64(change[0])
+        //                    case 1: c_moneyflow.elec = Int64(change[1])
+        //                    case 2: c_moneyflow.water = Int64(change[2])
+        //                    case 3: c_moneyflow.gas = Int64(change[3])
+        //                    case 4: c_moneyflow.com = Int64(change[4])
+        //                    case 5 : c_moneyflow.insure = Int64(change[5])
+        //                    case 6 : c_moneyflow.subsc = Int64(change[6])
         //                    default: break
         //                    }
         //                    //データベースの登録

@@ -24,7 +24,7 @@ class NewfixedFee: UIViewController {
     }
     @IBAction func clicknext(_ sender: Any) {
         
-        for i in 0..<5 {
+
             
             
             //配列を初期化
@@ -38,13 +38,14 @@ class NewfixedFee: UIViewController {
             allText.append(hoken.text!)
             allText.append(sonota.text!)
             
+        for i in 1..<3 {
             //空文字チェック
             let results:[Int]  = function.checkNull(getallText: allText , getstate: i)
             //エラーフラグが立っていなければ登録処理
             if function.resultsCheck(getresults: results) == 0 {
                 if i == 2 {
-                    if function.newPriceRegister(getresults: function.chengeInt8(getallText: allText)) == 0 {
-                        let alert = UIAlertController(title: "タイトル", message: "アラートのメッセージです。", preferredStyle: .alert)
+                    if function.newPriceRegister(getresults: function.chengeInt64(getallText: allText)) == 0 {
+                        let alert = UIAlertController(title: "登録完了", message: "ユーザー情報の登録が完了しました。", preferredStyle: .alert)
                         alert.addAction(UIAlertAction(title: "OK", style: .default))
                         self.present(alert, animated: true, completion: nil)
                     }
@@ -125,7 +126,7 @@ class NewfixedFee: UIViewController {
             //            if errorflag == 1 {
             //            } else {
             //                //配列内の型変換に利用する配列
-            //                let change = checkarray.compactMap { Int8($0) }
+            //                let change = checkarray.compactMap { Int64($0) }
             //
             //
             //
@@ -138,13 +139,13 @@ class NewfixedFee: UIViewController {
             //                for value in change {
             //
             //                    switch value {
-            //                    case 0: c_moneyflow.home = Int8(change[0])
-            //                    case 1: c_moneyflow.elec = Int8(change[1])
-            //                    case 2: c_moneyflow.water = Int8(change[2])
-            //                    case 3: c_moneyflow.gas = Int8(change[3])
-            //                    case 4: c_moneyflow.com = Int8(change[4])
-            //                    case 5 : c_moneyflow.insure = Int8(change[5])
-            //                    case 6 : c_moneyflow.subsc = Int8(change[6])
+            //                    case 0: c_moneyflow.home = Int64(change[0])
+            //                    case 1: c_moneyflow.elec = Int64(change[1])
+            //                    case 2: c_moneyflow.water = Int64(change[2])
+            //                    case 3: c_moneyflow.gas = Int64(change[3])
+            //                    case 4: c_moneyflow.com = Int64(change[4])
+            //                    case 5 : c_moneyflow.insure = Int64(change[5])
+            //                    case 6 : c_moneyflow.subsc = Int64(change[6])
             //                    default: break
             //                    }
             //                    //データベースの登録

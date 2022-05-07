@@ -11,12 +11,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
+        
 // application(application:didFinishLaunchingWithOptions:)の中に書きます
 
         let config = Realm.Configuration(
           // 新しいスキーマバージョンを設定します。以前のバージョンより大きくなければなりません。
           // （スキーマバージョンを設定したことがなければ、最初は0が設定されています）
-          schemaVersion: 2,
+          schemaVersion: 7,
 
           // マイグレーション処理を記述します。古いスキーマバージョンのRealmを開こうとすると
           // 自動的にマイグレーションが実行されます。
@@ -35,6 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Realmファイルを開こうとしたときスキーマバージョンが異なれば、
         // 自動的にマイグレーションが実行されます
         let realm = try! Realm()
+        print(Realm.Configuration.defaultConfiguration.fileURL!)
         return true
     }
 
@@ -47,6 +49,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {
 
     }
+    
 
    
 }

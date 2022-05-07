@@ -25,7 +25,7 @@ class fixedFee: UIViewController {
         navigationController?.popViewController(animated: true)
     
                   let realm = try! Realm()
-                  let items =  realm.objects(user.self)
+                  let items =  realm.objects(moneyflow.self)
         //配列の値をストリング型に変換する
         let m:String = String(items[0].home)
         let e:String = String(items[0].elec)
@@ -69,7 +69,7 @@ class fixedFee: UIViewController {
         //空文字チェック
         let results:[Int]  = function.checkNull(getallText: allText , getstate: 1)
         if function.resultsCheck(getresults: results) == 0 {
-            if function.PriceUpdate(getresults: function.chengeInt8(getallText: allText)) == 0 {
+            if function.PriceUpdate(getresults: function.chengeInt64(getallText: allText)) == 0 {
             let alert = UIAlertController(title: "タイトル", message: "アラートのメッセージです。", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default))
             self.present(alert, animated: true, completion: nil)

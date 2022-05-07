@@ -21,6 +21,8 @@ class log: UIViewController {
     //ボタンクリックイベント
     //テキストボックス入力値を変数に代入して、realmから検索
     @IBAction func bottonthouch(_ sender: Any) {
+         g_id = ""
+         g_pass = ""
         //ボタン押下でテキストボックスとエラーメッセージ欄を初期化するにする
         errorText.isHidden = true
         id.backgroundColor = UIColor.white
