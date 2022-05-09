@@ -14,14 +14,14 @@ class ceo: UIViewController {
         super.viewDidLoad()
         //ナビゲーションを表示させる
         navigationController?.popViewController(animated: true)
-    
-
+        
+        
         showname.text = function.searchName(id :g_id ,pass :g_pass)
         print(showname.text!)
     }
     
-  
-        
     
-
+    
+    
+    
 }

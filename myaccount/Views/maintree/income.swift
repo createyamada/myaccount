@@ -18,9 +18,9 @@ class income: UIViewController {
         super.viewDidLoad()
         //ナビゲーションを表示させる
         navigationController?.popViewController(animated: true)
-    
         
-
+        
+        
     }
     @IBAction func registerclick(_ sender: Any) {
         
@@ -36,9 +36,9 @@ class income: UIViewController {
         //エラーフラグが立っていなければ登録処理
         if function.resultsCheck(getresults: results) == 0 {
             if function.newPriceRegister(getresults: function.chengeInt64(getallText: allText)) == 0 {
-            let alert = UIAlertController(title: "タイトル", message: "アラートのメッセージです。", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default))
-            self.present(alert, animated: true, completion: nil)
+                let alert = UIAlertController(title: "タイトル", message: "アラートのメッセージです。", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default))
+                self.present(alert, animated: true, completion: nil)
             }
             
             
@@ -74,5 +74,5 @@ class income: UIViewController {
         
         
     }
-
+    
 }

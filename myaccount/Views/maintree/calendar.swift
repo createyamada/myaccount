@@ -8,9 +8,9 @@ import FSCalendar
 import CalculateCalendarLogic
 
 class calendar: UIViewController, FSCalendarDataSource, FSCalendarDelegate,FSCalendarDelegateAppearance {
-
+    
     @IBOutlet weak var calendar: FSCalendar!
-
+    
     @IBOutlet weak var labelDate: UILabel!
     
     override func viewDidLoad() {
@@ -22,20 +22,20 @@ class calendar: UIViewController, FSCalendarDataSource, FSCalendarDelegate,FSCal
         labelDate.text = getToday(format:"yyyy年MM月dd日")
         //ナビゲーションを表示させる
         navigationController?.popViewController(animated: true)
-
+        
     }
     func getToday(format:String = "yyyy/MM/dd HH:mm:ss") -> String {
-            let now = Date()
-            let formatter = DateFormatter()
-            formatter.dateFormat = format
-            return formatter.string(from: now as Date)
-        }
+        let now = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = format
+        return formatter.string(from: now as Date)
+    }
     
     fileprivate let gregorian: Calendar = Calendar(identifier: .gregorian)
     fileprivate lazy var  dateFormatter: DateFormatter = { let formatter = DateFormatter();formatter.dateFormat = "yyyy年mm月dd日"
         return formatter
     }()
-
+    
     //祝日判定を行い結果を返すメソッド（true:祝日）
     func justHoliday(_ date : Date) -> Bool {
         //祝日判定用のカレンダークラスのインスタンス
@@ -50,7 +50,7 @@ class calendar: UIViewController, FSCalendarDataSource, FSCalendarDelegate,FSCal
         let holiday = CalculateCalendarLogic()
         
         return holiday.judgeJapaneseHoliday(year: year, month: month, day: day)
-        }
+    }
     //date型　-> 年月日をIntで取得
     func getday(_ date: Date) -> (Int,Int,Int){
         let tempCalendar = Calendar(identifier: .gregorian)
@@ -59,7 +59,7 @@ class calendar: UIViewController, FSCalendarDataSource, FSCalendarDelegate,FSCal
         let day = tempCalendar.component(.day, from: date)
         return (year,month,day)
     }
-
+    
     //曜日判定(日曜日：１　〜　土曜日：７)
     func getWeekIdx(_ date: Date) -> Int {
         let tempCalendar = Calendar(identifier: .gregorian)
@@ -85,7 +85,7 @@ class calendar: UIViewController, FSCalendarDataSource, FSCalendarDelegate,FSCal
         }
         
         return nil
-    
+        
     }
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
         let tmpDate = Calendar(identifier: .gregorian)
@@ -104,11 +104,11 @@ class calendar: UIViewController, FSCalendarDataSource, FSCalendarDelegate,FSCal
         //画面遷移(スケジュール登録ページ)
         // SubViewController へ遷移するために Segue を呼び出す
         performSegue(withIdentifier: "out",sender: nil)
-        }
+    }
     
     // Segue 準備
     override func prepare(for segue: UIStoryboardSegue, sender: Any!) {
-
+        
         if (segue.identifier == "out") {
             let calender = (segue.destination as? out)!
             

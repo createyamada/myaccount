@@ -53,11 +53,11 @@ class outregister: UIViewController {
         
     }
 }
-    
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
+
 

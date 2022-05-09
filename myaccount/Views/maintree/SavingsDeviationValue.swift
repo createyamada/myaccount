@@ -79,11 +79,11 @@ class SavingsDeviationValue: UIViewController {
         super.viewDidLoad()
         //ナビゲーションを表示させる
         navigationController?.popViewController(animated: true)
-    
+        
         showName.text = function.searchName(id :g_id,pass :g_pass)
     }
     
-   
     
-
+    
+    
 }

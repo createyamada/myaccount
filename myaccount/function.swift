@@ -27,9 +27,9 @@ class function: NSObject {
         }
         
         
-        return name
+        return name + " 社長"
     }
-
+    
     
     //ログイン情報が正しいか判定するメソッド(ログイン画面)
     //@ param id idに入力した値
@@ -58,7 +58,9 @@ class function: NSObject {
         let realm = try! Realm()
         //user型のオブジェクトを生成
         let c_moneyflow = moneyflow()
-        
+        //idを登録
+        let inid = realm.objects(User.self)
+        c_moneyflow.id = inid[0].id
         for i in 0..<7 {
             switch i {
             case 0: c_moneyflow.home = getresults[0]
@@ -89,8 +91,30 @@ class function: NSObject {
     class func newUserRegister(getresults:Array<String>) -> Int {
         let realm = try! Realm()
         //user型のオブジェクトを生成
+        let items =  realm.objects(User.self).filter("id == %@","")
+        for (i,texts) in getresults.enumerated() {
+            switch i {
+            case 0: items[0].name = getresults[0]
+            case 1: items[0].age = getresults[1]
+            case 2: items[0].sex = getresults[2]
+            case 3: items[0].saveingaumont = getresults[3]
+            case 4: items[0].incomeperM = getresults[4]
+            case 5 : items[0].incomeperY = getresults[5]
+            default: break
+            }
+        }
+        return 0
+    }
+    
+    //入力したユーザー情報を更新するメソッド
+    //@ param id idに入力した値
+    //@ param pass passに入力した値
+    //戻り値　結果(OKであれば０、失敗であれば１)
+    class func UserUpdata(getresults:Array<String>) -> Int {
+        let realm = try! Realm()
+        //user型のオブジェクトを生成
         let c_moneyflow = User()
-                for (i,texts) in getresults.enumerated() {
+        for (i,texts) in getresults.enumerated() {
             switch i {
             case 0: c_moneyflow.name = getresults[0]
             case 1: c_moneyflow.age = getresults[1]
@@ -117,58 +141,29 @@ class function: NSObject {
     //@ param pass passに入力した値
     //戻り値　結果(存在すれば０、しなければ１)
     class func PriceUpdate(getresults:Array<Int64>) -> Int {
-//        let realm = try! Realm()
-//        let targets = realm.objects(moneyflow.self).filter("id == %@",g_id)
-        let c_moneyflow = moneyflow()
+        let realm = try! Realm()
+        let targets = realm.objects(moneyflow.self).filter("id == %@",g_id)
+        //        let c_moneyflow = realm.objects(moneyflow.self)
         
-        do{
-            try! realm.write{
-              for i in 0..<7 {
-                  switch i {
-                  case 0: c_moneyflow.home = getresults[0]
-                  case 1: c_moneyflow.elec = getresults[1]
-                  case 2: c_moneyflow.water = getresults[2]
-                  case 3: c_moneyflow.gas = getresults[3]
-                  case 4: c_moneyflow.com = getresults[4]
-                  case 5 : c_moneyflow.insure = getresults[5]
-                  case 6 : c_moneyflow.subsc = getresults[6]
-                  default: break
-                  }
-              }
+        try! realm.write{
+            for i in 0..<7 {
+                print(getresults[0])
+                switch i {
+                case 0: targets[0].home = getresults[0]
+                case 1: targets[0].elec = getresults[1]
+                case 2: targets[0].water = getresults[2]
+                case 3: targets[0].gas = getresults[3]
+                case 4: targets[0].com = getresults[4]
+                case 5 : targets[0].insure = getresults[5]
+                case 6 : targets[0].subsc = getresults[6]
+                default: break
+                }
             }
-
-                  } catch {
-              print("Error \(error)")
-            }
-            return 0
+        }
+        
+        return 0
     }
-                  
-                  
-                      
-//              var counter:Int = 0
-//              for value in getresults{
-//                          switch value {
-//                          case 0: c_moneyflow[0].home = getresults[0]
-//                          case 1: c_moneyflow[1].elec = getresults[1]
-//                          case 2: c_moneyflow[2].water = getresults[2]
-//                          case 3: targets[3].gas = getresults[3]
-//                          case 4: targets[4].com = getresults[4]
-//                          case 5 : targets[5].insure = getresults[5]
-//                          case 6 : targets[6].subsc = getresults[6]
-//                          default: break
-//                          }
-//                  case 0:value.home = 0
-//                  case 1:value.home = 0
-//                  case 2:value.home = 0
-//                  case 3:value.home = 0
-//                  case 4:value.home = 0
-//                  case 5:value.home = 0
-//                  case 6:value.home = 0
-//                  default:break
-//                  }
-//                  counter += 1
-
-
+    
     
     
     //入力情報を登録するメソッド（新規作成ID画面）
@@ -216,13 +211,6 @@ class function: NSObject {
     }
     
     
-//    class func selectById(itemId iId: Int) -> user()? {
-//        let predicate: NSPredicate = NSPredicate(format: "itemId = %d", iId)
-//        let results: Results<user> = realm.objects(Item.self).filter(predicate)
-//        if results > 0 {
-//            return results[0]
-//        }
-//        return nil
     
     //配列の中にエラーフラグが立っているかを確認するメソッド
     //@ param id idに入力した値
@@ -268,7 +256,7 @@ class function: NSObject {
                     results.append(0)
                 }
                 
-
+                
             default:
                 break
             }
@@ -288,13 +276,13 @@ class function: NSObject {
             var revalue:Int64 = Int64(value)!
             one.append(revalue)
         }
-//        for value in one{
-//            two.append(Int64(value))
-//        }
+        //        for value in one{
+        //            two.append(Int64(value))
+        //        }
         return one
     }
     
-
+    
     
     //受け取った数値にて性別を文字に変換する
     //@ param getNumber 画面にて入力された性別の情報をもつInt変数
@@ -307,6 +295,19 @@ class function: NSObject {
         default:break
         }
         return "errror"
+    }
+    
+    //受け取った文字列にて性別を数値に変換する
+    //@ param getWord データベースの文字列型の性別
+    //戻り値　Int型の変数(0＝男性、1＝女性、2＝その他)
+    class func sexchangeW(getWord:String) -> Int  {
+        switch(getWord){
+        case "男性": return 0
+        case "女性": return 1
+        case "その他": return 2
+        default:break
+        }
+        return 3
     }
     
 }

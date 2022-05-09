@@ -64,7 +64,7 @@ class out: UIViewController ,UICollectionViewDelegate, UICollectionViewDataSourc
     var selectedImage :UIImage?
     var r_selectdate:String?
     
-
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         // [indexPath.row] から画像名を探し、UImage を設定
@@ -86,7 +86,7 @@ class out: UIViewController ,UICollectionViewDelegate, UICollectionViewDataSourc
                 break
             }
             
-//            // SubViewController へ遷移するために Segue を呼び出す
+            //            // SubViewController へ遷移するために Segue を呼び出す
             self.performSegue(withIdentifier: "outregister",sender: nil)
         }
     }
@@ -95,7 +95,7 @@ class out: UIViewController ,UICollectionViewDelegate, UICollectionViewDataSourc
     override func prepare(for segue: UIStoryboardSegue, sender: Any!) {
         if (segue.identifier == "outregister") {
             let out = (segue.destination as? outregister)!
-
+            
             // SubViewController のselectedImgに選択された画像を設定する
             out.selectedImg = selectedImage
             out.selecttext = selecttxt

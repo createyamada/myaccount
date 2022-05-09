@@ -48,14 +48,5 @@ class cleate: UIViewController {
             alert.addAction(UIAlertAction(title: "OK", style: .default))
             self.present(alert, animated: true, completion: nil)
         }
-        
-
- 
     }
-    
-    
-    
-    
-    
-    
 }

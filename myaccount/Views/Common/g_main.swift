@@ -17,7 +17,7 @@ class g_main: UIViewController, UITableViewDelegate, UITableViewDataSource{
     //キャッシュフロー入力セル
     let contents2 = ["収入","支出"]
     //テーブルビューセル項目（会社要項ページ）
-    let contents3 = ["マイ決算書","貯金偏差値","固定費変更","設定"]
+    let contents3 = ["貯金偏差値","固定費変更","設定"]
     
     
     override func viewDidLoad() {
@@ -65,7 +65,7 @@ class g_main: UIViewController, UITableViewDelegate, UITableViewDataSource{
         case 1:
             cell.textLabel?.text = contents2[IndexPath.row]
         case 2
-        :
+            :
             cell.textLabel?.text = contents3[IndexPath.row]
         default:
             break
@@ -76,92 +76,83 @@ class g_main: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     //タップされたセルに応じて画面遷移を行う
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-            // セルの選択を解除
-            tableView.deselectRow(at: indexPath, animated: true)
-            //セクションが代表取締役の時
+        // セルの選択を解除
+        tableView.deselectRow(at: indexPath, animated: true)
+        //セクションが代表取締役の時
         if indexPath.section == 0 {
-                switch indexPath.row {
-                case 0 :
-                    //代表取締役セルタップ時
-                    //メイン画面に遷移
-                    //次画面のストーリーボードを指定
-                    let storyboard: UIStoryboard = self.storyboard!
-                    //遷移先のコントローラーを指定
-                    let nextView = storyboard.instantiateViewController(withIdentifier: "ceo") as! ceo
-                    //遷移を行う
-                    self.present(nextView, animated: true, completion: nil)
-                default:
-                    break
-                }
+            switch indexPath.row {
+            case 0 :
+                //代表取締役セルタップ時
+                //メイン画面に遷移
+                //次画面のストーリーボードを指定
+                let storyboard: UIStoryboard = self.storyboard!
+                //遷移先のコントローラーを指定
+                let nextView = storyboard.instantiateViewController(withIdentifier: "ceo") as! ceo
+                //遷移を行う
+                self.present(nextView, animated: true, completion: nil)
+            default:
+                break
             }
-            //セクションがキャッシュフロー入力の時
+        }
+        //セクションがキャッシュフロー入力の時
         if indexPath.section == 1 {
-                
-                switch indexPath.row {
-                case 0:
-                    //収入セルタップ時
-                    //メイン画面に遷移
-                    //次画面のストーリーボードを指定
-                    let storyboard: UIStoryboard = self.storyboard!
-                    //遷移先のコントローラーを指定
-                    let nextView = storyboard.instantiateViewController(withIdentifier: "income") as! income
-                    //遷移を行う
-                    self.present(nextView, animated: true, completion: nil)
-                case 1:
-                    //支出セルタップ時
-                    //メイン画面に遷移
-                    //次画面のストーリーボードを指定
-                    let storyboard: UIStoryboard = self.storyboard!
-                    //遷移先のコントローラーを指定
-                    let nextView = storyboard.instantiateViewController(withIdentifier: "out") as! out
-                    //遷移を行う
-                    self.present(nextView, animated: true, completion: nil)
-                default:
-                    break
-                }
+            
+            switch indexPath.row {
+            case 0:
+                //収入セルタップ時
+                //メイン画面に遷移
+                //次画面のストーリーボードを指定
+                let storyboard: UIStoryboard = self.storyboard!
+                //遷移先のコントローラーを指定
+                let nextView = storyboard.instantiateViewController(withIdentifier: "income") as! income
+                //遷移を行う
+                self.present(nextView, animated: true, completion: nil)
+            case 1:
+                //支出セルタップ時
+                //メイン画面に遷移
+                //次画面のストーリーボードを指定
+                let storyboard: UIStoryboard = self.storyboard!
+                //遷移先のコントローラーを指定
+                let nextView = storyboard.instantiateViewController(withIdentifier: "calendar") as! calendar
+                //遷移を行う
+                self.present(nextView, animated: true, completion: nil)
+            default:
+                break
             }
-            //セクションが会社要項の時
+        }
+        //セクションが会社要項の時
         if indexPath.section == 2 {
-                switch indexPath.row {
-                
-                case 0:
-                    //マイ決算書セルタップ時
-                    //次画面のストーリーボードを指定
-                    let storyboard: UIStoryboard = self.storyboard!
-                    //遷移先のコントローラーを指定
-                    let nextView = storyboard.instantiateViewController(withIdentifier: "calendar") as! calendar
-                    //ナビゲーションコントローラ読み込み
-                    let navi = UINavigationController(rootViewController: nextView)
-                    //遷移を行う
-                    self.present(navi, animated: true, completion: nil)
-                case 1:
-                    //貯金偏差値セルタップ時
-                    //次画面のストーリーボードを指定
-                    let storyboard: UIStoryboard = self.storyboard!
-                    //遷移先のコントローラーを指定
-                    let nextView = storyboard.instantiateViewController(withIdentifier: "SavingsDeviationValue") as! SavingsDeviationValue
-                    //遷移を行う
-                    self.present(nextView, animated: true, completion: nil)
-                case 2:
-                    //固定費変更セルタップ
-                    //次画面のストーリーボードを指定
-                    let storyboard: UIStoryboard = self.storyboard!
-                    //遷移先のコントローラーを指定
-                    let nextView = storyboard.instantiateViewController(withIdentifier: "fixedFee") as! fixedFee
-                    //遷移を行う
-                    self.present(nextView, animated: true, completion: nil)
-                case 3:
-                    //設定セルタップ
-                    //次画面のストーリーボードを指定
-                    let storyboard: UIStoryboard = self.storyboard!
-                    //遷移先のコントローラーを指定
-                    _ = storyboard.instantiateViewController(withIdentifier: "fixedFee") as! fixedFee
-                default:
-                    break
-                }
-                
+            switch indexPath.row {
+            case 0:
+                //貯金偏差値セルタップ時
+                //次画面のストーリーボードを指定
+                let storyboard: UIStoryboard = self.storyboard!
+                //遷移先のコントローラーを指定
+                let nextView = storyboard.instantiateViewController(withIdentifier: "SavingsDeviationValue") as! SavingsDeviationValue
+                //遷移を行う
+                self.present(nextView, animated: true, completion: nil)
+            case 1:
+                //固定費変更セルタップ
+                //次画面のストーリーボードを指定
+                let storyboard: UIStoryboard = self.storyboard!
+                //遷移先のコントローラーを指定
+                let nextView = storyboard.instantiateViewController(withIdentifier: "fixedFee") as! fixedFee
+                //遷移を行う
+                self.present(nextView, animated: true, completion: nil)
+            case 2:
+                //設定セルタップ
+                //次画面のストーリーボードを指定
+                let storyboard: UIStoryboard = self.storyboard!
+                //遷移先のコントローラーを指定
+                let nextView = storyboard.instantiateViewController(withIdentifier: "UserInfo") as! UserInfo
+                //遷移を行う
+                self.present(nextView, animated: true, completion: nil)
+            default:
+                break
             }
+            
+        }
         print("セクション\(indexPath.section)番目セル\(indexPath.row)番目の行が選択されました。") }
-      }
+}
 
 

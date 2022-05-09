@@ -1057,10 +1057,10 @@
             </objects>
             <point key="canvasLocation" x="713" y="917"/>
         </scene>
-        <!--New User Info-->
+        <!--User Info-->
         <scene sceneID="cbR-Mi-clu">
             <objects>
-                <viewController storyboardIdentifier="NewUserInfo" id="VLy-ya-hON" customClass="NewUserInfo" customModule="myaccount" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="UserInfo" id="VLy-ya-hON" customClass="UserInfo" customModule="myaccount" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lWg-yT-9O7">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1157,10 +1157,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PzG-nv-Rwd">
                                 <rect key="frame" x="181.5" y="740" width="51" height="28"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <state key="normal" title="次へ"/>
-                                <connections>
-                                    <action selector="clicknext:" destination="VLy-ya-hON" eventType="touchUpInside" id="TTl-gJ-AU4"/>
-                                </connections>
+                                <state key="normal" title="更新"/>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="hzP-ep-SEr"/>
@@ -1180,16 +1177,153 @@
                     </view>
                     <navigationItem key="navigationItem" id="TSg-Gf-yB4"/>
                     <connections>
-                        <outlet property="age" destination="P2f-rs-ANk" id="Kl6-Tq-weZ"/>
-                        <outlet property="annualIncome" destination="ZlR-9z-rue" id="9V7-YI-ZU2"/>
-                        <outlet property="monthlyIncome" destination="4aM-yh-DTq" id="ZVM-4A-MPF"/>
-                        <outlet property="name" destination="yYJ-Jj-O3X" id="2JT-Uq-5f2"/>
-                        <outlet property="saving" destination="Vej-KJ-3RJ" id="kOW-1J-Zrx"/>
-                        <outlet property="sex" destination="TUi-kc-ffo" id="dpX-jq-nPY"/>
+                        <outlet property="age" destination="P2f-rs-ANk" id="yp4-IF-hMq"/>
+                        <outlet property="annualIncome" destination="ZlR-9z-rue" id="0OR-RT-lnF"/>
+                        <outlet property="monthlyIncome" destination="4aM-yh-DTq" id="NS5-T3-8QO"/>
+                        <outlet property="name" destination="yYJ-Jj-O3X" id="UC9-0L-KZe"/>
+                        <outlet property="saving" destination="Vej-KJ-3RJ" id="tig-XJ-gPd"/>
+                        <outlet property="sex" destination="TUi-kc-ffo" id="9GD-io-xNa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xqa-xD-9lg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="iiu-w0-scO" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="2429" y="3542"/>
+        </scene>
+        <!--New User Info-->
+        <scene sceneID="5Sj-3d-dBa">
+            <objects>
+                <viewController storyboardIdentifier="NewUserInfo" id="AuY-Wc-iXw" customClass="NewUserInfo" customModule="myaccount" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9qE-03-j91">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ユーザ情報" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a7B-Gi-fK4">
+                                <rect key="frame" x="20" y="74" width="176.5" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="9Uh-GR-gRO">
+                                <rect key="frame" x="20" y="129" width="374" height="586"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ニックネーム" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aJ9-jw-WXI">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="45"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XMm-dy-Vhm">
+                                        <rect key="frame" x="0.0" y="45" width="374" height="45"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="name:" destination="iiu-w0-scO" eventType="editingDidEnd" id="57H-Ip-1Vh"/>
+                                            <action selector="name:" destination="XMj-Nr-xQS" eventType="editingDidEnd" id="lKa-9Q-Gjc"/>
+                                        </connections>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="年齢" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H4A-6e-VZF">
+                                        <rect key="frame" x="0.0" y="90" width="374" height="45"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="atY-9W-baA">
+                                        <rect key="frame" x="0.0" y="135" width="374" height="45.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="性別" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n4c-su-be0">
+                                        <rect key="frame" x="0.0" y="180.5" width="374" height="45"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="XoU-5b-z1L">
+                                        <rect key="frame" x="0.0" y="225.5" width="374" height="46"/>
+                                        <segments>
+                                            <segment title="男性"/>
+                                            <segment title="女性"/>
+                                            <segment title="その他"/>
+                                        </segments>
+                                    </segmentedControl>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="貯金額" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AGM-nN-dJd">
+                                        <rect key="frame" x="0.0" y="270.5" width="374" height="45"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IdL-fg-MOE">
+                                        <rect key="frame" x="0.0" y="315.5" width="374" height="45"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="年収（賞与含む）" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X78-KO-ILY">
+                                        <rect key="frame" x="0.0" y="360.5" width="374" height="45"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VB9-of-ygm">
+                                        <rect key="frame" x="0.0" y="405.5" width="374" height="45.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="月収（額面）" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dTx-2a-ZMJ">
+                                        <rect key="frame" x="0.0" y="451" width="374" height="45"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EW7-S3-xYF">
+                                        <rect key="frame" x="0.0" y="496" width="374" height="45"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XH3-G9-K9u">
+                                        <rect key="frame" x="0.0" y="541" width="374" height="45"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="57s-H7-4R8">
+                                <rect key="frame" x="181.5" y="740" width="51" height="28"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="次へ"/>
+                                <connections>
+                                    <action selector="clicknext:" destination="AuY-Wc-iXw" eventType="touchUpInside" id="tXk-9m-NhV"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="a87-ha-n5y"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="a7B-Gi-fK4" firstAttribute="top" secondItem="a87-ha-n5y" secondAttribute="top" constant="30" id="32R-od-fCf"/>
+                            <constraint firstItem="57s-H7-4R8" firstAttribute="top" secondItem="9Uh-GR-gRO" secondAttribute="bottom" constant="25" id="4Xc-SF-Srb"/>
+                            <constraint firstItem="a87-ha-n5y" firstAttribute="bottom" secondItem="9Uh-GR-gRO" secondAttribute="bottom" constant="147" id="GIh-zi-5N1"/>
+                            <constraint firstItem="a87-ha-n5y" firstAttribute="bottom" secondItem="57s-H7-4R8" secondAttribute="bottom" constant="94" id="I1a-Ib-Ces"/>
+                            <constraint firstItem="9Uh-GR-gRO" firstAttribute="top" secondItem="9qE-03-j91" secondAttribute="top" constant="129" id="M9T-7D-pef"/>
+                            <constraint firstItem="a7B-Gi-fK4" firstAttribute="leading" secondItem="9Uh-GR-gRO" secondAttribute="leading" id="Mqk-Xh-T56"/>
+                            <constraint firstItem="9Uh-GR-gRO" firstAttribute="trailing" secondItem="9qE-03-j91" secondAttribute="trailingMargin" id="ari-Ua-Mrk"/>
+                            <constraint firstItem="9Uh-GR-gRO" firstAttribute="leading" secondItem="9qE-03-j91" secondAttribute="leadingMargin" id="fsx-ea-XzC"/>
+                            <constraint firstItem="9Uh-GR-gRO" firstAttribute="top" secondItem="a7B-Gi-fK4" secondAttribute="bottom" constant="25" id="iml-XG-msb"/>
+                            <constraint firstItem="57s-H7-4R8" firstAttribute="centerX" secondItem="9Uh-GR-gRO" secondAttribute="centerX" id="zeI-Bu-9c8"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="qw7-iE-Lb8"/>
+                    <connections>
+                        <outlet property="age" destination="atY-9W-baA" id="oJR-z6-UlS"/>
+                        <outlet property="annualIncome" destination="VB9-of-ygm" id="ya3-Ur-9tR"/>
+                        <outlet property="monthlyIncome" destination="EW7-S3-xYF" id="QEZ-8W-hiV"/>
+                        <outlet property="name" destination="XMm-dy-Vhm" id="1gh-ws-XsC"/>
+                        <outlet property="saving" destination="IdL-fg-MOE" id="uC1-87-3fa"/>
+                        <outlet property="sex" destination="XoU-5b-z1L" id="NzI-ST-pnt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="I9S-1S-NC9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="XMj-Nr-xQS" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-26" y="917"/>
         </scene>

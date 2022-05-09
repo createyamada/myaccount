@@ -3,6 +3,9 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "static AppDelegate.$main():AppDelegate.swift">
+      </ContextState>
+      <ContextState
          contextName = "out.collectionView(_:didSelectItemAt:):out.swift">
          <PersistentStrings>
             <PersistentString
@@ -10,6 +13,14 @@
             </PersistentString>
             <PersistentString
                value = "selecttxt">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "UserInfo.viewDidLoad():UserInfo.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "g_id">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
