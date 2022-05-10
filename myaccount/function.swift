@@ -88,11 +88,11 @@ class function: NSObject {
     //@ param id idに入力した値
     //@ param pass passに入力した値
     //戻り値　結果(OKであれば０、失敗であれば１)
-    class func newUserRegister(getresults:Array<String>) -> Int {
+    class func UserUpdate(getresults:Array<String>) -> Int {
         let realm = try! Realm()
         //user型のオブジェクトを生成
-        let items =  realm.objects(User.self).filter("id == %@","")
-        for (i,texts) in getresults.enumerated() {
+        let items =  realm.objects(User.self).filter("id == %@",g_id)
+        for i in 0..<6 {
             switch i {
             case 0: items[0].name = getresults[0]
             case 1: items[0].age = getresults[1]
@@ -110,25 +110,27 @@ class function: NSObject {
     //@ param id idに入力した値
     //@ param pass passに入力した値
     //戻り値　結果(OKであれば０、失敗であれば１)
-    class func UserUpdata(getresults:Array<String>) -> Int {
+    class func newUserRegister(getresults:Array<String>) -> Int {
         let realm = try! Realm()
         //user型のオブジェクトを生成
-        let c_moneyflow = User()
+        let obj =  User()
+        obj.id = g_id
+        obj.pass = g_pass
         for (i,texts) in getresults.enumerated() {
             switch i {
-            case 0: c_moneyflow.name = getresults[0]
-            case 1: c_moneyflow.age = getresults[1]
-            case 2: c_moneyflow.sex = getresults[2]
-            case 3: c_moneyflow.saveingaumont = getresults[3]
-            case 4: c_moneyflow.incomeperM = getresults[4]
-            case 5 : c_moneyflow.incomeperY = getresults[5]
+            case 0: obj.name = getresults[0]
+            case 1: obj.age = getresults[1]
+            case 2: obj.sex = getresults[2]
+            case 3: obj.saveingaumont = getresults[3]
+            case 4: obj.incomeperM = getresults[4]
+            case 5 : obj.incomeperY = getresults[5]
             default: break
             }
         }
         do{
             try! realm.write {
-                //データベースの登録
-                realm.add(c_moneyflow)
+                //データベースの更新
+                realm.add(obj ,update: .modified)
             }
         }catch {
             return 1

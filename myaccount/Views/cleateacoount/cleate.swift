@@ -25,7 +25,11 @@ class cleate: UIViewController {
         let results:[Int] = function.checkNull(getallText: allText, getstate: 1)
         if function.resultsCheck(getresults: results) == 0{
             if function.newIDRegister(getid: id.text!, getpass: pass.text!) == 0{
+                //グローバル変数に値を代入
+                g_id = id.text!
+                g_pass = pass.text!
                 //次画面のストーリーボードを指定
+
                 let storyboard: UIStoryboard = self.storyboard!
                 //遷移先のコントローラーを指定
                 let nextView = storyboard.instantiateViewController(withIdentifier: "NewUserInfo") as! NewUserInfo

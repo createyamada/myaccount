@@ -17,6 +17,9 @@ class log: UIViewController {
         //ロード時はエラ〜メッセージ欄Aを非表示にする
         errorText.isHidden = true
         
+        g_id = ""
+        g_pass = ""
+        
     }
     //ボタンクリックイベント
     //テキストボックス入力値を変数に代入して、realmから検索
@@ -39,6 +42,7 @@ class log: UIViewController {
             //エラーフラグが立っていないならば登録処理を行う
             if function.userinfosearch(getid:id.text! , getpass:pass.text!) == 0{
                 g_id = id.text!
+                g_pass = pass.text!
                 //メイン画面に遷移
                 //次画面のストーリーボードを指定
                 let storyboard: UIStoryboard = self.storyboard!

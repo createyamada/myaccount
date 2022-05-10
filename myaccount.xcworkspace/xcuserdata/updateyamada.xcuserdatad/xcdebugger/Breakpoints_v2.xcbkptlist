@@ -1090,8 +1090,8 @@
             filePath = "myaccount/function.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "289"
-            endingLineNumber = "289"
+            startingLineNumber = "291"
+            endingLineNumber = "291"
             landmarkName = "function"
             landmarkType = "3">
          </BreakpointContent>
@@ -1266,8 +1266,8 @@
             filePath = "myaccount/function.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "266"
-            endingLineNumber = "266"
+            startingLineNumber = "268"
+            endingLineNumber = "268"
             landmarkName = "checkNull(getallText:getstate:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1282,8 +1282,8 @@
             filePath = "myaccount/function.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "225"
-            endingLineNumber = "225"
+            startingLineNumber = "227"
+            endingLineNumber = "227"
             landmarkName = "resultsCheck(getresults:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1298,8 +1298,8 @@
             filePath = "myaccount/function.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "228"
-            endingLineNumber = "228"
+            startingLineNumber = "230"
+            endingLineNumber = "230"
             landmarkName = "resultsCheck(getresults:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1314,8 +1314,8 @@
             filePath = "myaccount/function.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "282"
-            endingLineNumber = "282"
+            startingLineNumber = "284"
+            endingLineNumber = "284"
             landmarkName = "chengeInt64(getallText:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1378,8 +1378,8 @@
             filePath = "myaccount/Views/Common/log.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "40"
-            endingLineNumber = "40"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
             landmarkName = "bottonthouch(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1388,7 +1388,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "1A939E56-AA3A-46B0-8049-15F817147A03"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "myaccount/function.swift"
@@ -1410,8 +1410,8 @@
             filePath = "myaccount/function.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "143"
-            endingLineNumber = "143"
+            startingLineNumber = "145"
+            endingLineNumber = "145"
             landmarkName = "PriceUpdate(getresults:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1420,7 +1420,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "F51AC0D1-A6E3-4793-94C0-A8C320357A56"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "myaccount/Views/maintree/UserInfo.swift"
@@ -1452,14 +1452,14 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "FD0ADC77-B506-4668-AF5C-EA178691BFA6"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "myaccount/function.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "150"
-            endingLineNumber = "150"
+            startingLineNumber = "152"
+            endingLineNumber = "152"
             landmarkName = "PriceUpdate(getresults:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1510,6 +1510,54 @@
                   offsetFromSymbolStart = "730">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8C101A2F-C349-434D-B695-54ED1012D994"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "myaccount/function.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "94"
+            endingLineNumber = "94"
+            landmarkName = "UserUpdate(getresults:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7B6473B0-45AA-4D31-93BE-6E2796C4E395"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "myaccount/function.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "91"
+            endingLineNumber = "91"
+            landmarkName = "UserUpdate(getresults:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "AC4838D7-9142-42F7-B912-4DF8A7EA200B"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "myaccount/function.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "119"
+            endingLineNumber = "119"
+            landmarkName = "newUserRegister(getresults:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
