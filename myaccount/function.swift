@@ -21,9 +21,9 @@ class function: NSObject {
         
         let realm = try!Realm()
         
-        let Items = realm.objects(User.self).filter("id == %@",g_id).filter("pass == %@",g_pass)
-        for user in Items {
-            name = user.name
+        let params = realm.objects(User.self).filter("id == %@",g_id).filter("pass == %@",g_pass)
+        for param in params {
+            name = param.name
         }
         
         
@@ -39,8 +39,8 @@ class function: NSObject {
         
         //realmの条件検索によっていIDとパスワードが一致するものがあるか検索
         let realm = try! Realm()
-        let items =  realm.objects(User.self).filter("id == %@",getid).filter("pass == %@",getpass)
-        if items.count >= 1 {
+        let params =  realm.objects(User.self).filter("id == %@",getid).filter("pass == %@",getpass)
+        if params.count >= 1 {
             //IDとパスワードが同じものがあればTRUEを返す
             return  0
         } else {
@@ -51,32 +51,33 @@ class function: NSObject {
     }
     
     
+    
     //入力した費用情報を保存するメソッド（ログイン画面）
     //@ param getresults 画面に入力した値の配列
     //戻り値　結果(存在すれば０、しなければ１)
     class func newPriceRegister(getresults:Array<Int64>) -> Int {
         let realm = try! Realm()
         //user型のオブジェクトを生成
-        let c_moneyflow = moneyflow()
+        let param = moneyflow()
         //idを登録
         let inid = realm.objects(User.self)
-        c_moneyflow.id = inid[0].id
+        param.id = inid[0].id
         for i in 0..<7 {
             switch i {
-            case 0: c_moneyflow.home = getresults[0]
-            case 1: c_moneyflow.elec = getresults[1]
-            case 2: c_moneyflow.water = getresults[2]
-            case 3: c_moneyflow.gas = getresults[3]
-            case 4: c_moneyflow.com = getresults[4]
-            case 5 : c_moneyflow.insure = getresults[5]
-            case 6 : c_moneyflow.subsc = getresults[6]
+            case 0: param.home = getresults[0]
+            case 1: param.elec = getresults[1]
+            case 2: param.water = getresults[2]
+            case 3: param.gas = getresults[3]
+            case 4: param.com = getresults[4]
+            case 5 : param.insure = getresults[5]
+            case 6 : param.subsc = getresults[6]
             default: break
             }
         }
         do{
             try! realm.write {
                 //データベースの登録
-                realm.add(c_moneyflow)
+                realm.add(param)
             }
         }catch {
             return 1
@@ -91,15 +92,15 @@ class function: NSObject {
     class func UserUpdate(getresults:Array<String>) -> Int {
         let realm = try! Realm()
         //user型のオブジェクトを生成
-        let items =  realm.objects(User.self).filter("id == %@",g_id)
+        let param =  realm.objects(User.self).filter("id == %@",g_id)
         for i in 0..<6 {
             switch i {
-            case 0: items[0].name = getresults[0]
-            case 1: items[0].age = getresults[1]
-            case 2: items[0].sex = getresults[2]
-            case 3: items[0].saveingaumont = getresults[3]
-            case 4: items[0].incomeperM = getresults[4]
-            case 5 : items[0].incomeperY = getresults[5]
+            case 0: param[0].name = getresults[0]
+            case 1: param[0].age = getresults[1]
+            case 2: param[0].sex = getresults[2]
+            case 3: param[0].saveingaumont = getresults[3]
+            case 4: param[0].incomeperM = getresults[4]
+            case 5 : param[0].incomeperY = getresults[5]
             default: break
             }
         }
@@ -113,24 +114,24 @@ class function: NSObject {
     class func newUserRegister(getresults:Array<String>) -> Int {
         let realm = try! Realm()
         //user型のオブジェクトを生成
-        let obj =  User()
-        obj.id = g_id
-        obj.pass = g_pass
+        let param =  User()
+        param.id = g_id
+        param.pass = g_pass
         for (i,texts) in getresults.enumerated() {
             switch i {
-            case 0: obj.name = getresults[0]
-            case 1: obj.age = getresults[1]
-            case 2: obj.sex = getresults[2]
-            case 3: obj.saveingaumont = getresults[3]
-            case 4: obj.incomeperM = getresults[4]
-            case 5 : obj.incomeperY = getresults[5]
+            case 0: param.name = getresults[0]
+            case 1: param.age = getresults[1]
+            case 2: param.sex = getresults[2]
+            case 3: param.saveingaumont = getresults[3]
+            case 4: param.incomeperM = getresults[4]
+            case 5 : param.incomeperY = getresults[5]
             default: break
             }
         }
         do{
             try! realm.write {
                 //データベースの更新
-                realm.add(obj ,update: .modified)
+                realm.add(param ,update: .modified)
             }
         }catch {
             return 1
@@ -144,20 +145,17 @@ class function: NSObject {
     //戻り値　結果(存在すれば０、しなければ１)
     class func PriceUpdate(getresults:Array<Int64>) -> Int {
         let realm = try! Realm()
-        let targets = realm.objects(moneyflow.self).filter("id == %@",g_id)
-        //        let c_moneyflow = realm.objects(moneyflow.self)
-        
+        let param = realm.objects(moneyflow.self).filter("id == %@",g_id)
         try! realm.write{
             for i in 0..<7 {
-                print(getresults[0])
                 switch i {
-                case 0: targets[0].home = getresults[0]
-                case 1: targets[0].elec = getresults[1]
-                case 2: targets[0].water = getresults[2]
-                case 3: targets[0].gas = getresults[3]
-                case 4: targets[0].com = getresults[4]
-                case 5 : targets[0].insure = getresults[5]
-                case 6 : targets[0].subsc = getresults[6]
+                case 0: param[0].home = getresults[0]
+                case 1: param[0].elec = getresults[1]
+                case 2: param[0].water = getresults[2]
+                case 3: param[0].gas = getresults[3]
+                case 4: param[0].com = getresults[4]
+                case 5 : param[0].insure = getresults[5]
+                case 6 : param[0].subsc = getresults[6]
                 default: break
                 }
             }
@@ -175,13 +173,13 @@ class function: NSObject {
     class func newIDRegister(getid:String,getpass:String) -> Int {
         let realm = try! Realm()
         //user型のオブジェクトを生成
-        let c_user = User()
+        let param = User()
         //登録処理
         do{
             try realm.write{
-                c_user.id = getid
-                c_user.pass = getpass
-                realm.add(c_user)
+                param.id = getid
+                param.pass = getpass
+                realm.add(param)
             }
         }catch {
             return 1
@@ -194,17 +192,16 @@ class function: NSObject {
     //@ param id idに入力した値
     //@ param pass passに入力した値
     //戻り値　結果(存在すれば０、しなければ１)
-    class func newOutRegister(getitle:String,getactivereson:String , getmamo:String ,getdate:String) -> Int {
+    class func newOutRegister(getresults:Array<String>) -> Int {
         let realm = try! Realm()
-        let eventModel = calender()
+        let param = calender()
         //登録処理
         do{
             try! realm.write{
-                eventModel.title = getitle
-                eventModel.outreason = getactivereson
-                eventModel.memo = getmamo
-                eventModel.date =  getdate
-                realm.add(eventModel)
+                param.outreason = getresults[0]
+                param.payout = Int64(getresults[1]) ?? 0
+                param.date =  getresults[2]
+                realm.add(param)
             }
         }catch{
             return 1

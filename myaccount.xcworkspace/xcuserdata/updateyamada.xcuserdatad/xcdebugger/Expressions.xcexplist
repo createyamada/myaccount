@@ -3,16 +3,10 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "static AppDelegate.$main():AppDelegate.swift">
-      </ContextState>
-      <ContextState
          contextName = "out.collectionView(_:didSelectItemAt:):out.swift">
          <PersistentStrings>
             <PersistentString
                value = "photos[indexPath.row]">
-            </PersistentString>
-            <PersistentString
-               value = "selecttxt">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -23,6 +17,23 @@
                value = "g_id">
             </PersistentString>
          </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "out.collectionView(_:cellForItemAt:):out.swift">
+      </ContextState>
+      <ContextState
+         contextName = "static AppDelegate.$main():AppDelegate.swift">
+      </ContextState>
+      <ContextState
+         contextName = "outregister.registerClick(_:):outregister.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "reason.isHidden">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "out.prepare(for:sender:):out.swift">
       </ContextState>
    </ContextStates>
 </VariablesViewState>

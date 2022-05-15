@@ -11,8 +11,8 @@ class out: UIViewController ,UICollectionViewDelegate, UICollectionViewDataSourc
     
     
     @IBOutlet weak var collection: UICollectionView!
-    private let photos = ["photo0","photo1","photo2","photo3","photo4","photo5","photo6"]
-    let contents = ["飲食費","交通費","雑貨","日用品","趣味","医療費","衣類"]
+    private let photos = ["photo0","photo1","photo2","photo3","photo4","photo5","photo6","photo7"]
+    let contents = ["飲食費","交通費","雑貨","日用品","趣味","医療費","衣類","その他"]
     var selectdate:String!
     
     
@@ -80,7 +80,8 @@ class out: UIViewController ,UICollectionViewDelegate, UICollectionViewDataSourc
             case "photo3": selecttxt = contents[3]
             case "photo4": selecttxt = contents[4]
             case "photo5": selecttxt = contents[5]
-            case "phote6": selecttxt = contents[6]
+            case "photo6": selecttxt = contents[6]
+            case "photo7": selecttxt = contents[7]
                 
             default:
                 break

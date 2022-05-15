@@ -16,6 +16,7 @@ class outregister: UIViewController {
     @IBOutlet weak var text: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var value: UITextField!
+    @IBOutlet weak var reason: UITextField!
     var selecttext:String!
     var selectedImg: UIImage!
     var r_selectdate:String!
@@ -26,6 +27,14 @@ class outregister: UIViewController {
         super.viewDidLoad()
         text.text = selecttext
         imageView.image = selectedImg
+        //その他であればテキスト入力形式にする。
+        if(selecttext == "その他"){
+            text.text = "資金使途"
+            
+        } else {
+            reason.isHidden = true
+        }
+        
         //yyyy年mm月dd日→yyyy-mm-dd
         // フォーマット設定
         /// DateFomatterクラスのインスタンス生成
@@ -40,14 +49,26 @@ class outregister: UIViewController {
     }
     //登録ボタン押下時
     @IBAction func registerClick(_ sender: Any) {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd MMM yyyy"
+        let sDate = dateFormatter.string(from: datepicker.date)
         //テキストボックスの内容を配列に格納する。
         var allText:[String] = []
+        if(reason.isHidden != true){
+            allText.append(reason.text!)
+        } else {
         allText.append(text.text!)
+        }
+        allText.append(value.text!)
+        allText.append(sDate)
+
         //空文字チェック
         let results:[Int]  = function.checkNull(getallText: allText , getstate: 1)
         //エラーフラグがあるかチェック
         if function.resultsCheck(getresults: results) == 0{
-            
+            if(function.newOutRegister(getresults: allText) == 0 ){
+                
+            }
         }
         
         
