@@ -4,11 +4,13 @@
 
 
 import UIKit
+import RealmSwift
 import FSCalendar
 import CalculateCalendarLogic
 
 class calendar: UIViewController, FSCalendarDataSource, FSCalendarDelegate,FSCalendarDelegateAppearance {
     
+    @IBOutlet weak var TableView: UITableView!
     @IBOutlet weak var calendar: FSCalendar!
     
     @IBOutlet weak var labelDate: UILabel!
@@ -24,6 +26,15 @@ class calendar: UIViewController, FSCalendarDataSource, FSCalendarDelegate,FSCal
         navigationController?.popViewController(animated: true)
         
     }
+    
+    //**********************************
+    //
+    //      カレンダー製造
+    //
+    //**********************************
+    
+    
+    
     func getToday(format:String = "yyyy/MM/dd HH:mm:ss") -> String {
         let now = Date()
         let formatter = DateFormatter()
@@ -87,13 +98,46 @@ class calendar: UIViewController, FSCalendarDataSource, FSCalendarDelegate,FSCal
         return nil
         
     }
+    
+    
+    //選択日付を表示する
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
+        //選択日付をフォーマット
         let tmpDate = Calendar(identifier: .gregorian)
         let year = tmpDate.component(.year, from: date)
         let month = tmpDate.component(.month, from: date)
         let day = tmpDate.component(.day, from: date)
         labelDate.text = "\(year)年\(month)月\(day)日"
+        
+        TableView.reloadData()
+
+    //**********************************
+    //
+    //      セルイベント
+    //
+    //**********************************
+    
+//    //セルの個数を返すメソッド
+//    func tableView(_ tableView: UITableView,numberOfRowsInSection section: Int) -> Int {
+//        return getModel(date: labelDate.text!).count
+//    }
+//
+//    //セクション内に表示するセルのテキストを返すメソッド
+//    func tableView(_ tableView: UITableView, cellForRowAt IndexPath: IndexPath) -> UITableViewCell {
+//            let cell = TableView.dequeueReusableCell(withIdentifier: "cell", for: IndexPath)
+//        let data = getModel(date: labelDate.text!)
+//
+//            return cell
+//        }
     }
+    
+    
+
+
+    
+
+    
+
     
     
     var selectdate:String?
@@ -106,6 +150,7 @@ class calendar: UIViewController, FSCalendarDataSource, FSCalendarDelegate,FSCal
         performSegue(withIdentifier: "out",sender: nil)
     }
     
+    
     // Segue 準備
     override func prepare(for segue: UIStoryboardSegue, sender: Any!) {
         
@@ -116,4 +161,29 @@ class calendar: UIViewController, FSCalendarDataSource, FSCalendarDelegate,FSCal
             calender.selectdate = selectdate
         }
     }
+    
+    //データベース上に保存されているデータを配列に格納する。
+    func getModel(date:String) ->  Array<Any>{
+        let realm = try! Realm()
+        let results = realm.objects(calender.self).filter("date == %@",date)
+        var param: [[String:String]] = []
+        for result in results {
+            param.append(["reason": result.outreason,
+                                "payout": String(result.payout),
+                                "date": result.date
+                                ])
+
+        }
+        return param
+    }
+    
+//    func filterModel() {
+//        var filterdEvents: [[String:String]] = []
+//        for eventModel in eventModels {
+//            if eventModel["date"] == stringFromDate(date: selectedDate as Date, format: "yyyy.MM.dd") {
+//                filterdEvents.append(eventModel)
+//            }
+//        }
+//        filterdModels = filterdEvents
+//    }
 }
