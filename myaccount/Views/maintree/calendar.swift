@@ -20,6 +20,8 @@ class calendar: UIViewController, FSCalendarDataSource, FSCalendarDelegate,FSCal
         //デリゲートの設定
         self.calendar.dataSource = self
         self.calendar.delegate = self
+        TableView.delegate = self
+        TableView.dataSource = self
         
         labelDate.text = getToday(format:"yyyy年MM月dd日")
         //ナビゲーションを表示させる
@@ -107,38 +109,19 @@ class calendar: UIViewController, FSCalendarDataSource, FSCalendarDelegate,FSCal
         let year = tmpDate.component(.year, from: date)
         let month = tmpDate.component(.month, from: date)
         let day = tmpDate.component(.day, from: date)
-        labelDate.text = "\(year)年\(month)月\(day)日"
-        
+        let formatDate = getFormattedDateString(dateString: "\(year)\(month)\(day)")
+        labelDate.text = formatDate
         TableView.reloadData()
-
-    //**********************************
-    //
-    //      セルイベント
-    //
-    //**********************************
-    
-//    //セルの個数を返すメソッド
-//    func tableView(_ tableView: UITableView,numberOfRowsInSection section: Int) -> Int {
-//        return getModel(date: labelDate.text!).count
-//    }
-//
-//    //セクション内に表示するセルのテキストを返すメソッド
-//    func tableView(_ tableView: UITableView, cellForRowAt IndexPath: IndexPath) -> UITableViewCell {
-//            let cell = TableView.dequeueReusableCell(withIdentifier: "cell", for: IndexPath)
-//        let data = getModel(date: labelDate.text!)
-//
-//            return cell
-//        }
     }
     
-    
-
-
-    
-
-    
-
-    
+    func getFormattedDateString(dateString: String, from fromFormat: String = "yyyyMdd", to toFormat: String = "yyyy年MM月dd日") -> String? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = .current
+        dateFormatter.dateFormat = fromFormat
+        guard let date = dateFormatter.date(from: dateString) else { return nil }
+        dateFormatter.dateFormat = toFormat
+        return dateFormatter.string(from: date)
+    }
     
     var selectdate:String?
     //プラスボタンクリック
@@ -163,16 +146,16 @@ class calendar: UIViewController, FSCalendarDataSource, FSCalendarDelegate,FSCal
     }
     
     //データベース上に保存されているデータを配列に格納する。
-    func getModel(date:String) ->  Array<Any>{
+    func getModel(date:String) ->  [[String:String]] {
         let realm = try! Realm()
         let results = realm.objects(calender.self).filter("date == %@",date)
         var param: [[String:String]] = []
         for result in results {
             param.append(["reason": result.outreason,
-                                "payout": String(result.payout),
-                                "date": result.date
-                                ])
-
+                          "payout": String(result.payout),
+                          "date": result.date
+                         ])
+            
         }
         return param
     }
@@ -186,4 +169,29 @@ class calendar: UIViewController, FSCalendarDataSource, FSCalendarDelegate,FSCal
 //        }
 //        filterdModels = filterdEvents
 //    }
+}
+
+extension calendar: UITableViewDelegate, UITableViewDataSource {
+    //セルの個数を返すメソッド
+    func tableView(_ tableView: UITableView,numberOfRowsInSection section: Int) -> Int {
+        return getModel(date: labelDate.text!).count
+    }
+    
+    //セクション内に表示するセルのテキストを返すメソッド
+    func tableView(_ tableView: UITableView, cellForRowAt IndexPath: IndexPath) -> UITableViewCell {
+        let cell = TableView.dequeueReusableCell(withIdentifier: "calendarCell", for: IndexPath)
+        let data = getModel(date: labelDate.text!)[IndexPath.row]
+        let outReasonLabel = cell.contentView.viewWithTag(1) as! UILabel
+        let dateLabel = cell.contentView.viewWithTag(2) as! UILabel
+        let payoutLabel = cell.contentView.viewWithTag(3) as! UILabel
+        if let reason =  data["reason"]?.description,
+              let date = data["date"]?.description,
+           let payout = data["payout"]?.description {
+            outReasonLabel.text = reason
+            dateLabel.text = date
+            payoutLabel.text = "\(payout)円"
+        }
+
+        return cell
+    }
 }
