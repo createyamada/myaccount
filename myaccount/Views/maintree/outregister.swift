@@ -50,7 +50,7 @@ class outregister: UIViewController {
     //登録ボタン押下時
     @IBAction func registerClick(_ sender: Any) {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd MMM yyyy"
+        dateFormatter.dateFormat = "yyyy年MM月dd日"
         let sDate = dateFormatter.string(from: datepicker.date)
         //テキストボックスの内容を配列に格納する。
         var allText:[String] = []
