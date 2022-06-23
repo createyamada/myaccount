@@ -15,7 +15,7 @@ class g_main: UIViewController, UITableViewDelegate, UITableViewDataSource{
     //代表取締役セル
     let contents1 = ["代表取締役"]
     //キャッシュフロー入力セル
-    let contents2 = ["収入","支出"]
+    let contents2 = ["収入・支出"]
     //テーブルビューセル項目（会社要項ページ）
     let contents3 = ["貯金偏差値","固定費変更","設定"]
     
@@ -99,15 +99,6 @@ class g_main: UIViewController, UITableViewDelegate, UITableViewDataSource{
             
             switch indexPath.row {
             case 0:
-                //収入セルタップ時
-                //メイン画面に遷移
-                //次画面のストーリーボードを指定
-                let storyboard: UIStoryboard = self.storyboard!
-                //遷移先のコントローラーを指定
-                let nextView = storyboard.instantiateViewController(withIdentifier: "income") as! income
-                //遷移を行う
-                self.present(nextView, animated: true, completion: nil)
-            case 1:
                 //支出セルタップ時
                 //メイン画面に遷移
                 //次画面のストーリーボードを指定
@@ -119,6 +110,7 @@ class g_main: UIViewController, UITableViewDelegate, UITableViewDataSource{
             default:
                 break
             }
+
         }
         //セクションが会社要項の時
         if indexPath.section == 2 {

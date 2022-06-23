@@ -3,13 +3,73 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "out.prepare(for:sender:):out.swift">
-      </ContextState>
-      <ContextState
          contextName = "outregister.registerClick(_:):outregister.swift">
          <PersistentStrings>
             <PersistentString
                value = "reason.isHidden">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "out.collectionView(_:cellForItemAt:):out.swift">
+      </ContextState>
+      <ContextState
+         contextName = "calendar.showAlert(deleteIndexPath:):calendar.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "IndexPath">
+            </PersistentString>
+            <PersistentString
+               value = "indexPath.row">
+            </PersistentString>
+            <PersistentString
+               value = "labelDate.text!">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "calendar.prepare(for:sender:):calendar.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "labelDate.text">
+            </PersistentString>
+            <PersistentString
+               value = "selectdate">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "out.prepare(for:sender:):out.swift">
+      </ContextState>
+      <ContextState
+         contextName = "calendar.calendar(_:didSelect:at:):calendar.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "labelDate.text">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "calendar.tableView(_:numberOfRowsInSection:):calendar.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "labelDate.text!">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "calendar.tableView(_:cellForRowAt:):calendar.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "data[&quot;flag&quot;]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "income.viewDidLoad():income.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "selectdate">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -22,24 +82,29 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "static AppDelegate.$main():AppDelegate.swift">
-      </ContextState>
-      <ContextState
-         contextName = "calendar.calendar(_:didSelect:at:):calendar.swift">
+         contextName = "income.registerClick(_:):income.swift">
          <PersistentStrings>
             <PersistentString
-               value = "labelDate.text">
+               value = "incomereason.text!">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "out.collectionView(_:cellForItemAt:):out.swift">
+         contextName = "static AppDelegate.$main():AppDelegate.swift">
       </ContextState>
       <ContextState
          contextName = "UserInfo.viewDidLoad():UserInfo.swift">
          <PersistentStrings>
             <PersistentString
                value = "g_id">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "calendar.calendar(_:numberOfEventsFor:):calendar.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "todos.count">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

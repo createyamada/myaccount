@@ -68,21 +68,15 @@ class moneyflow: Object {
 //臨時　　カレンダークラス
 class calender: Object {
     //ユーザID
-    @objc dynamic var id:String = "";
-    //タイトル
-    @objc dynamic var title:String = ""
-    //支出事由
-    @objc dynamic var outreason:String = ""
-    //収入事由
-    @objc dynamic var inreason:String = ""
-    //メモ
-    @objc dynamic var memo:String = ""
+    @objc dynamic var id:String = ""
+    //事由
+    @objc dynamic var reason:String = ""
+    //フラグ
+    @objc dynamic var flag:String = ""
     //yyyy.mm.dd（年月日）
     @objc dynamic var date:String = ""
     //支出
-    @objc dynamic var payout:Int64 = 0
-    //収入
-    @objc dynamic var incometemp:Int64 = 0
+    @objc dynamic var AmountOfMoney:Int64 = 0
     
     let users = LinkingObjects(fromType: User.self, property: "CALENDERS")
 }

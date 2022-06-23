@@ -198,9 +198,32 @@ class function: NSObject {
         //登録処理
         do{
             try! realm.write{
-                param.outreason = getresults[0]
-                param.payout = Int64(getresults[1]) ?? 0
+                param.reason = getresults[0]
+                param.AmountOfMoney = Int64(getresults[1]) ?? 0
                 param.date =  getresults[2]
+                param.flag = "0"
+                realm.add(param)
+            }
+        }catch{
+            return 1
+        }
+        return 0
+    }
+    
+    //入力情報を登録するメソッド（収入登録画面）
+    //@ param id idに入力した値
+    //@ param pass passに入力した値
+    //戻り値　結果(存在すれば０、しなければ１)
+    class func newIncomeRegister(getresults:Array<String>) -> Int {
+        let realm = try! Realm()
+        let param = calender()
+        //登録処理
+        do{
+            try! realm.write{
+                param.reason = getresults[0]
+                param.AmountOfMoney = Int64(getresults[1]) ?? 0
+                param.date =  getresults[2]
+                param.flag = "1"
                 realm.add(param)
             }
         }catch{

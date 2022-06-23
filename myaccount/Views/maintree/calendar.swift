@@ -14,7 +14,7 @@ class calendar: UIViewController, FSCalendarDataSource, FSCalendarDelegate,FSCal
     @IBOutlet weak var calendar: FSCalendar!
     
     @IBOutlet weak var labelDate: UILabel!
-    
+    var datesWithEvents: Set<String> = []
     override func viewDidLoad() {
         super.viewDidLoad()
         //デリゲートの設定
@@ -26,6 +26,8 @@ class calendar: UIViewController, FSCalendarDataSource, FSCalendarDelegate,FSCal
         labelDate.text = getToday(format:"yyyy年MM月dd日")
         //ナビゲーションを表示させる
         navigationController?.popViewController(animated: true)
+        
+        
         
     }
     
@@ -106,21 +108,61 @@ class calendar: UIViewController, FSCalendarDataSource, FSCalendarDelegate,FSCal
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
         //選択日付をフォーマット
         let tmpDate = Calendar(identifier: .gregorian)
-        let year = tmpDate.component(.year, from: date)
-        let month = tmpDate.component(.month, from: date)
-        let day = tmpDate.component(.day, from: date)
-        let formatDate = getFormattedDateString(dateString: "\(year)\(month)\(day)")
+        let year = String(tmpDate.component(.year, from: date))
+        var month = String(tmpDate.component(.month, from: date))
+        var day = String(tmpDate.component(.day, from: date))
+        //月、日の桁数が１なら先頭に０を追加
+        var formatDate:String?
+        if(String(month).count == 1){
+           month = "0" + month
+        }
+        if(String(day).count == 1){
+            day = "0" + day
+        }
+
+        
+        formatDate = getFormattedDateString(dateString: "\(year)\(month)\(day)")
+        
         labelDate.text = formatDate
         TableView.reloadData()
     }
     
-    func getFormattedDateString(dateString: String, from fromFormat: String = "yyyyMdd", to toFormat: String = "yyyy年MM月dd日") -> String? {
+    func getFormattedDateString(dateString: String, from fromFormat: String = "yyyyMMdd", to toFormat: String = "yyyy年MM月dd日") -> String? {
         let dateFormatter = DateFormatter()
         dateFormatter.locale = .current
         dateFormatter.dateFormat = fromFormat
         guard let date = dateFormatter.date(from: dateString) else { return nil }
         dateFormatter.dateFormat = toFormat
         return dateFormatter.string(from: date)
+    }
+    
+    // 任意の日付に点マークをつける
+    func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int{
+
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy年MM月dd日"
+        formatter.calendar = Calendar(identifier: .gregorian)
+        formatter.timeZone = TimeZone.current
+        formatter.locale = Locale.current
+        let calendarDay = formatter.string(from: date)
+
+        // Realmオブジェクトの生成
+        let realm = try! Realm()
+        // 参照（全データを取得）
+        let todos = realm.objects(calender.self)
+
+        if todos.count > 0 {
+            for i in 0..<todos.count {
+                if i == 0 {
+                    datesWithEvents = [todos[i].date]
+                } else {
+                    datesWithEvents.insert(todos[i].date)
+                }
+            }
+        } else {
+            datesWithEvents = []
+        }
+        return datesWithEvents.contains(calendarDay) ? 1 : 0
     }
     
     var selectdate:String?
@@ -130,20 +172,32 @@ class calendar: UIViewController, FSCalendarDataSource, FSCalendarDelegate,FSCal
         selectdate = labelDate.text
         //画面遷移(スケジュール登録ページ)
         // SubViewController へ遷移するために Segue を呼び出す
+        performSegue(withIdentifier: "income",sender: nil)
+    }
+    
+    
+    
+    @IBAction func MinusButton(_ sender: Any) {
+        selectdate = labelDate.text
+        //画面遷移(スケジュール登録ページ)
+        // SubViewController へ遷移するために Segue を呼び出す
         performSegue(withIdentifier: "out",sender: nil)
     }
     
-    
     // Segue 準備
     override func prepare(for segue: UIStoryboardSegue, sender: Any!) {
-        
-        if (segue.identifier == "out") {
+        //プラスボタンクリック時
+        if (segue.identifier == "out"){
             let calender = (segue.destination as? out)!
-            
-            // SubViewController のselectedImgに選択された画像を設定する
+            //選択した日付けを次画面へ
+            calender.selectdate = selectdate
+        } else if (segue.identifier == "income") {
+            let calender = (segue.destination as? income)!
             calender.selectdate = selectdate
         }
     }
+    
+    
     
     //データベース上に保存されているデータを配列に格納する。
     func getModel(date:String) ->  [[String:String]] {
@@ -151,47 +205,99 @@ class calendar: UIViewController, FSCalendarDataSource, FSCalendarDelegate,FSCal
         let results = realm.objects(calender.self).filter("date == %@",date)
         var param: [[String:String]] = []
         for result in results {
-            param.append(["reason": result.outreason,
-                          "payout": String(result.payout),
-                          "date": result.date
+            param.append(["reason": result.reason,
+                          "money": String(result.AmountOfMoney),
+                          "date": result.date,
+                          "flag": result.flag
                          ])
             
         }
         return param
     }
     
-//    func filterModel() {
-//        var filterdEvents: [[String:String]] = []
-//        for eventModel in eventModels {
-//            if eventModel["date"] == stringFromDate(date: selectedDate as Date, format: "yyyy.MM.dd") {
-//                filterdEvents.append(eventModel)
-//            }
-//        }
-//        filterdModels = filterdEvents
-//    }
+    //セルの編集許可
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool
+    {
+        return true
+    }
+
+        func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+            let action = UIContextualAction(style: .destructive,
+                                            title: "削除") { (action, view, completionHandler) in
+                self.showAlert(deleteIndexPath: indexPath)
+                completionHandler(true)
+            }
+            action.backgroundColor = .red
+            let configuration = UISwipeActionsConfiguration(actions: [action])
+            return configuration
+        }
+        
+        func showAlert(deleteIndexPath indexPath: IndexPath) {
+            let date = labelDate.text!
+            let dialog = UIAlertController(title: "削除",
+                                           message: "削除してよろしいですか？",
+                                           preferredStyle: .alert)
+            var array = getModel(date: date)
+            dialog.addAction(UIAlertAction(title: "削除", style: .default, handler: { (_) in
+                array.remove(at: indexPath.row)
+                self.deleteModel(selectedDate: date, indexPath: indexPath.row)
+                self.TableView.deleteRows(at: [indexPath], with: .automatic)
+
+            }))
+            dialog.addAction(UIAlertAction(title: "やめる", style: .cancel, handler: nil))
+            self.present(dialog, animated: true, completion: nil)
+        }
 }
 
 extension calendar: UITableViewDelegate, UITableViewDataSource {
     //セルの個数を返すメソッド
     func tableView(_ tableView: UITableView,numberOfRowsInSection section: Int) -> Int {
-        return getModel(date: labelDate.text!).count
+        let length:Int = getModel(date: labelDate.text!).count
+        return length
+        
+
     }
     
     //セクション内に表示するセルのテキストを返すメソッド
     func tableView(_ tableView: UITableView, cellForRowAt IndexPath: IndexPath) -> UITableViewCell {
         let cell = TableView.dequeueReusableCell(withIdentifier: "calendarCell", for: IndexPath)
         let data = getModel(date: labelDate.text!)[IndexPath.row]
-        let outReasonLabel = cell.contentView.viewWithTag(1) as! UILabel
+        let reasonLabel = cell.contentView.viewWithTag(1) as! UILabel
         let dateLabel = cell.contentView.viewWithTag(2) as! UILabel
-        let payoutLabel = cell.contentView.viewWithTag(3) as! UILabel
+        let moneyLabel = cell.contentView.viewWithTag(3) as! UILabel
+        //支出なら色を変える
+        if(data["flag"] == "0"){
+            reasonLabel.textColor = UIColor.red
+            dateLabel.textColor = UIColor.red
+            moneyLabel.textColor = UIColor.red
+        }
         if let reason =  data["reason"]?.description,
               let date = data["date"]?.description,
-           let payout = data["payout"]?.description {
-            outReasonLabel.text = reason
+           let money = data["money"]?.description {
+            reasonLabel.text = reason
             dateLabel.text = date
-            payoutLabel.text = "\(payout)円"
+            moneyLabel.text = "\(money)円"
         }
 
         return cell
+    }
+    
+    
+  
+
+    
+
+    
+    func deleteModel(selectedDate: String, indexPath: Int) {
+        let realm = try! Realm()
+        let results = realm.objects(calender.self).filter("date == '\(selectedDate)'")
+        do {
+            try realm.write {
+                realm.delete(results[indexPath])
+                getModel(date: labelDate.text!)
+            }
+        } catch {
+            print("delete data error.")
+        }
     }
 }

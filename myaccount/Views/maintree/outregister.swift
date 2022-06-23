@@ -61,6 +61,7 @@ class outregister: UIViewController {
         }
         allText.append(value.text!)
         allText.append(sDate)
+        allText.append("1")
 
         //空文字チェック
         let results:[Int]  = function.checkNull(getallText: allText , getstate: 1)
